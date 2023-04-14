@@ -4,8 +4,8 @@ const validateLoginFields = (req, res, next) => {
     return res.status(400).json({ message: 'Some required fields are missing' });
   }
   next();
-}
+};
 
 module.exports = {
   validateLoginFields,
-}
+};

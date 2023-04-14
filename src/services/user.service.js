@@ -10,10 +10,10 @@ const login = async (email, password) => {
     const token = generateToken(user.dataValues);
     return { type: null, message: token };
   } catch (error) {
-    return { type: 'error', message: 'Invalid fields' }
+    return { type: 'error', message: 'Invalid fields' };
   }
-}
+};
 
 module.exports = {
   login,
-}
+};
