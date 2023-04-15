@@ -6,7 +6,7 @@ const login = async (email, password) => {
     const user = await User.findOne({
       where: { email, password },
     });
-  
+
     const token = generateToken(user.dataValues);
     return { type: null, message: token };
   } catch (error) {
@@ -34,8 +34,15 @@ const getUsers = async () => {
   }
 };
 
+const getUserById = async (id) => {
+  const user = await User.findOne({ where: { id }, attributes: { exclude: ['password'] } });
+  if (user) return { type: null, message: user };
+  return { type: 'error', message: 'User does not exist' };
+};
+
 module.exports = {
   login,
   createUser,
   getUsers,
+  getUserById,
 };
