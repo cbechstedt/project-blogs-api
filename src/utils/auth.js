@@ -12,6 +12,13 @@ const generateToken = (payload) => {
   return token;
 };
 
+const validateToken = (token) => {
+  // if (!token) throw 'Expired or invalid token';
+  const isValid = jwt.verify(token, secret);
+  return isValid;
+}
+
 module.exports = {
   generateToken,
+  validateToken,
 };
