@@ -1,4 +1,4 @@
-const { validateToken } = require('../utils/auth')
+const { validateToken } = require('./auth');
 
 const validateLoginFields = (req, res, next) => {
   const { email, password } = req.body;
@@ -32,7 +32,7 @@ const authToken = (req, res, next) => {
   const { authorization } = req.headers;
 
   if (!authorization) {
-    return res.status(401).json({ message: 'Token not found' })
+    return res.status(401).json({ message: 'Token not found' });
   }
 
   try {
@@ -43,7 +43,7 @@ const authToken = (req, res, next) => {
     console.log(error);
     return res.status(401).json({ message: 'Expired or invalid token' });
   }
-}
+};
 
 module.exports = {
   validateLoginFields,

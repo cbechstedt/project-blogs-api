@@ -30,7 +30,7 @@ const getUsers = async () => {
     const allUsers = await User.findAll({ attributes: { exclude: ['password'] } });
     return { type: null, message: allUsers };
   } catch (error) {
-    return { type: 'error', message: 'Internal error' }
+    return { type: 'error', message: 'Internal error' };
   }
 };
 
